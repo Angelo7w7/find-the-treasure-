@@ -1,39 +1,50 @@
-# Scripts de Base de Datos - AAFTM
+# Find the Treasure
 
-Esta carpeta contiene el script SQL esencial para la instalación del sistema AAFTM.
+¡Bienvenido/a a **Find the Treasure**!  
+Este es un pequeño juego de consola en Python donde tu objetivo es encontrar el tesoro escondido sin pisar ninguna bomba.
 
-## Archivo Principal
+## ¿Cómo se juega?
 
-### `ctm_db.sql`
-- **Propósito**: Script completo y autosuficiente de la base de datos
-- **Uso**: Instalación completa del sistema AAFTM
-- **Contiene**: 
-  - Estructura completa de todas las tablas
-  - Datos iniciales necesarios
-  - Índices optimizados
-  - Foreign keys y restricciones
-  - Sistema de proyectos y tareas
-  - Sistema de notificaciones
-  - Sistema de recordatorios
-  - Sistema de usuarios y preferencias
-- **Ejecutar**: Una sola vez durante la instalación inicial
+- El camino tiene 100 posiciones numeradas del 1 al 100.
+- El tesoro (`0`) está oculto en una posición aleatoria.
+- Hay 10 bombas (`*`) repartidas aleatoriamente (sin solaparse con el tesoro).
+- El jugador (`P`) inicia en la posición 0.
+- En cada turno, puedes saltar entre 1 y 5 posiciones.
+- Si caes sobre una bomba, ¡pierdes!
+- Si llegas al tesoro, ¡ganas!
+- Si te pasas de la posición 100, pierdes.
 
-## Instalación
+## Ejecución
 
-**Para nueva instalación:**
-```sql
--- Crear base de datos completa
-SOURCE ctm_db.sql;
+1. Asegúrate de tener Python 3 instalado.
+2. Descarga el archivo `treasure_game.py`.
+3. Ejecuta en tu terminal:
+
+   ```bash
+   python treasure_game.py
+   ```
+
+4. Sigue las instrucciones en pantalla para jugar.
+
+## Ejemplo de partida
+
+```
+*** Welcome to the treasure adventure! ***
+Your goal is to reach the treasure without stepping on bombs.
+Good luck!
+
+P*------*--*--*-------*-------*--*---*---*---*---*--0--*-------
+You're at position 0
+Choose a number between 1 and 5 to jump
+Now jump: 3
+You're safe... for now.
+---P*------*--*--*-------*-------*--*---*---*---*---*--0--*-------
+...
 ```
 
-**✅ No se requieren scripts adicionales** - `ctm_db.sql` es completamente autosuficiente.
+## Créditos
 
-## Archivos Eliminados
+Juego desarrollado por [Angelo7w7](https://github.com/Angelo7w7).
 
-Los siguientes archivos han sido movidos a `backup_obsoletos/` por ser redundantes:
-- `add_project_status.sql` - Ya incluido en `ctm_db.sql`
-- `email_setup.sql` - Ya incluido en `ctm_db.sql`
-- `migration_reminders.sql` - Ya incluido en `ctm_db.sql`
-- `Notas del proyecto.md` - Notas de desarrollo ya implementadas
-- `reminder_scheduler.php` - Reemplazado por `cron_reminders.php` en raíz
-- `resultados.txt` - Archivo temporal de debug
+---
+¡Diviértete y buena suerte buscando el tesoro!
